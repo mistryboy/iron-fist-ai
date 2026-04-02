@@ -34,11 +34,17 @@ export default function About() {
 
           <div className="about__visual">
             <div className="about__image-container">
-              {/* Image would be here — placeholder for now */}
-              <div className="about__image-placeholder">
-                <div className="about__image-glow"></div>
-                <span className="about__image-text">EST. 2018</span>
+              <div className="about__image-frame">
+                <img src="/hero-bg.png" alt="Training at Iron Core" className="about__image" />
+                <div className="about__image-overlay"></div>
+                <div className="about__image-tag">
+                  <span className="about__image-tag-icon">⚡</span>
+                  <span className="about__image-tag-text">EST. 2018</span>
+                </div>
               </div>
+              {/* Decorative elements */}
+              <div className="about__decoration about__decoration--1"></div>
+              <div className="about__decoration about__decoration--2"></div>
             </div>
           </div>
         </div>

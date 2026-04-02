@@ -342,22 +342,39 @@ input, textarea {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   :root {
-    --space-4xl: 4rem;
-    --space-3xl: 3rem;
-    --space-2xl: 2rem;
+    --space-4xl: 3.5rem;
+    --space-3xl: 2.5rem;
+    --space-2xl: 1.75rem;
+    --space-xl: 1.25rem;
   }
 
   .container {
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-md);
   }
 
   .section {
     padding: var(--space-3xl) 0;
   }
 
+  .section-title {
+    margin-bottom: var(--space-md);
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
   .btn {
     padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    width: 100%; /* Most buttons should be full-width on mobile */
+    max-width: 320px;
+  }
+
+  .btn-mobile-full {
+    width: 100%;
+    max-width: none;
   }
 }
 

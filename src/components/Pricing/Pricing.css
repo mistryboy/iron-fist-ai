@@ -157,8 +157,15 @@
 /* Responsive constraints */
 @media (max-width: 1024px) {
   .pricing__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .pricing__card--highlight {
+    grid-column: span 2;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -176,19 +183,24 @@
   .pricing__card {
     padding: var(--space-2xl) var(--space-xl);
     height: auto;
+    border-radius: var(--radius-lg);
   }
 
   .pricing__card--highlight {
     transform: scale(1);
-    order: -1; /* Move pro plan to top on mobile */
-  }
-
-  .pricing__card--highlight:hover {
-    transform: translateY(-5px);
+    order: -1;
+    grid-column: span 1;
+    max-width: none;
+    margin: 0;
   }
 
   .pricing__price {
     font-size: 3.5rem;
+  }
+
+  .pricing__btn {
+    height: 3.5rem;
+    font-size: 1.05rem;
   }
 }
 

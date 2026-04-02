@@ -42,6 +42,7 @@ export default function Chatbot() {
     setIsLoading(true);
 
     try {
+      // 1. Fetch Call (Requirement 8)
       const response = await fetch(API_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -56,20 +57,25 @@ export default function Chatbot() {
 
       const data = await response.json();
 
+      // 2. Error Handling for Specific Status Codes (Requirement 9)
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to get response');
+        const errorMsg = data.message || `Error ${response.status}`;
+        throw new Error(errorMsg);
       }
 
+      // 3. Update Messages (Requirement 5)
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: data.reply || data.message },
+        { role: 'assistant', content: data.reply },
       ]);
     } catch (err) {
+      console.error('[FRONTEND CHAT ERROR]', err);
+      
       setMessages((prev) => [
         ...prev,
         {
           role: 'assistant',
-          content: `Sorry, I couldn't process that. ${err.message}`,
+          content: `Forging ahead can be tough! ${err.message}. Please try again later.`,
           isError: true,
         },
       ]);

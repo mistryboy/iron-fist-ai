@@ -13,13 +13,21 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    const handleResize = () => {
+      if (window.innerWidth > 768 && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mobileOpen]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
@@ -46,43 +54,50 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <a href="#signup" className="btn btn-primary navbar__cta">
-          Get Started
-        </a>
+        <div className="navbar__actions">
+          <a href="#signup" className="btn btn-primary navbar__cta">
+            Get Started
+          </a>
 
-        {/* Mobile Toggle */}
-        <button
-          className={`navbar__burger${mobileOpen ? ' navbar__burger--open' : ''}`}
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+          {/* Mobile Toggle */}
+          <button
+            className={`navbar__burger${mobileOpen ? ' navbar__burger--open' : ''}`}
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            <span className="burger-line" />
+            <span className="burger-line" />
+            <span className="burger-line" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Overlay */}
-      <div className={`navbar__mobile${mobileOpen ? ' navbar__mobile--open' : ''}`}>
+      <div className={`navbar__mobile${mobileOpen ? ' navbar__mobile--open' : ''}`} aria-hidden={!mobileOpen}>
+        <div className="navbar__mobile-backdrop" onClick={() => setMobileOpen(false)} />
         <nav className="navbar__mobile-nav">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.map((link, index) => (
             <a
               key={link.href}
               href={link.href}
               className="navbar__mobile-link"
               onClick={handleNavClick}
+              style={{ '--index': index }}
             >
+              <span className="navbar__mobile-link-num">0{index + 1}</span>
               {link.label}
             </a>
           ))}
-          <a
-            href="#signup"
-            className="btn btn-primary navbar__mobile-cta"
-            onClick={handleNavClick}
-          >
-            Get Started
-          </a>
+          <div className="navbar__mobile-footer">
+            <a
+              href="#signup"
+              className="btn btn-primary navbar__mobile-cta"
+              onClick={handleNavClick}
+            >
+              Join the Movement
+            </a>
+          </div>
         </nav>
       </div>
     </header>

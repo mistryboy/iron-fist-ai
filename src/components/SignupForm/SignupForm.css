@@ -173,25 +173,41 @@
 
   .signup__info {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .signup__perks {
-    align-items: center;
+    align-items: flex-start;
     text-align: left;
+    max-width: 320px;
   }
 
   .signup__form-container {
-    padding: var(--space-lg);
-    border-radius: 0;
-    width: calc(100% + (var(--space-lg) * 2));
-    margin: 0 calc(var(--space-lg) * -1);
-    border-left: none;
-    border-right: none;
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--radius-lg);
+    width: 100%;
   }
 
   .signup__form-title {
     text-align: center;
     font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .signup__submit {
+    height: 3.25rem;
+    font-size: 1.05rem;
+  }
+
+  .signup__success {
+    padding: var(--space-lg) 0;
+  }
+
+  .signup__success-icon {
+    width: 64px;
+    height: 64px;
   }
 }
 

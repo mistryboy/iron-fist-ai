@@ -155,27 +155,25 @@
 @media (max-width: 768px) {
   .dashboard__header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: var(--space-xl);
-    text-align: left;
     padding-bottom: var(--space-lg);
   }
 
   .dashboard__logout-btn {
     width: 100%;
-    margin-top: var(--space-md);
+    max-width: 240px;
   }
 
   .dashboard__card {
-    padding: var(--space-lg);
-    border-radius: 0;
-    width: calc(100% + (var(--space-lg) * 2));
-    margin: 0 calc(var(--space-lg) * -1);
-    border-left: none;
-    border-right: none;
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--radius-lg);
+    width: 100%;
   }
 
   .dashboard__card-title {
+    text-align: center;
     font-size: 1.25rem;
     margin-bottom: var(--space-xl);
   }
@@ -185,15 +183,24 @@
     gap: var(--space-lg);
   }
 
+  .dashboard__detail-item {
+    text-align: center;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
   .dashboard__membership-area {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-xl);
-    width: 100%;
+    text-align: center;
   }
 
   .dashboard__view-pricing-btn {
     width: 100%;
+    max-width: 280px;
   }
 }
 
