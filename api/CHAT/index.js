@@ -51,15 +51,15 @@ export default async function handler(req, res) {
       top_p: 0.9,
     });
 
-    const reply = completion.choices[0]?.message?.content || 
-                  "Forge ahead! I'm having a brief issue connecting, but don't lose your momentum. Try again in a moment!";
+    const reply = completion.choices[0]?.message?.content ||
+      "Forge ahead! I'm having a brief issue connecting, but don't lose your momentum. Try again in a moment!";
 
     // 6. Return standard JSON response
     return res.status(200).json({ reply });
 
   } catch (err) {
     console.error('[CHAT ERROR]', err);
-    
+
     // Handle Groq rate limits or external errors
     if (err.status === 429) {
       return res.status(429).json({ message: 'The AI is taking a quick breather. Please try again in a moment!' });
