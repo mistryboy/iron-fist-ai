@@ -1,0 +1,194 @@
+.pricing__header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing__title-accent {
+  color: var(--color-accent);
+  text-shadow: var(--shadow-glow-lg);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  align-items: center; /* Center items so the highlighted one can naturally scale up */
+  padding-bottom: var(--space-2xl); /* Room for scaling */
+}
+
+/* Base Pricing Card */
+.pricing__card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.pricing__card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--color-bg-elevated);
+}
+
+/* Highlighted (Pro) Card */
+.pricing__card--highlight {
+  background: var(--color-bg-elevated);
+  border: 2px solid var(--color-accent);
+  transform: scale(1.05); /* Make it slightly larger default */
+  box-shadow: var(--shadow-glow);
+  z-index: 2; /* Put it visually above the other cards */
+}
+
+.pricing__card--highlight:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: var(--shadow-glow-lg);
+}
+
+/* Badge for Pro Plan */
+.pricing__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  padding: 0.4rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(57, 255, 20, 0.4);
+}
+
+/* Card Typography */
+.pricing__card-top {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricing__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.pricing__card--highlight .pricing__name {
+  color: var(--color-accent);
+}
+
+.pricing__price-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pricing__price {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.pricing__period {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Features List */
+.pricing__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  flex-grow: 1; /* Pushes CTA button to the bottom align */
+}
+
+.pricing__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.pricing__card--highlight .pricing__feature {
+  font-weight: 500;
+}
+
+.pricing__check {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* View More / CTA Button */
+.pricing__cta {
+  width: 100%;
+  margin-top: auto;
+}
+
+.pricing__btn {
+  width: 100%;
+}
+
+/* Responsive constraints */
+@media (max-width: 1024px) {
+  .pricing__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing__header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    padding: var(--space-xl) 0;
+  }
+
+  .pricing__card {
+    padding: var(--space-2xl) var(--space-xl);
+    height: auto;
+  }
+
+  .pricing__card--highlight {
+    transform: scale(1);
+    order: -1; /* Move pro plan to top on mobile */
+  }
+
+  .pricing__card--highlight:hover {
+    transform: translateY(-5px);
+  }
+
+  .pricing__price {
+    font-size: 3.5rem;
+  }
+}
+
