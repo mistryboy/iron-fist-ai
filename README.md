@@ -2,7 +2,7 @@
 
 ![Iron Core Fitness Banner](file:///d:/RAGNOR(gym)/docs/banner.png)
 
-Iron Core Fitness is a premium, high-performance web application designed for elite athletes and fitness enthusiasts. It combines a state-of-the-art training environment with a cutting-edge digital experience, featuring personalized user dashboards, AI-powered coaching assistants, and a seamless membership management system.
+Iron Core Fitness is a premium, high-performance web application designed for elite athletes and fitness enthusiasts. It combines a state-of-the-art training environment with a digital experience, featuring personalized user dashboards, AI-powered coaching assistants, and a seamless membership management system.
 
 ## 🚀 Key Features
 
@@ -12,15 +12,15 @@ Iron Core Fitness is a premium, high-performance web application designed for el
 - **Responsive & Premium Design**: Custom glassmorphism-inspired UI optimized for all devices, from desktop to mobile.
 - **Multi-Level Membership Plans**: Clear, transparent pricing with flexible options to suit your fitness journey.
 
-## 📸 Screenshots
+## 📸 Real UI Screenshots
 
-| Hero Section | About Us |
+| Hero Section (Authentic) | About Us (Authentic) |
 | :---: | :---: |
 | ![Hero](file:///d:/RAGNOR(gym)/docs/screenshots/hero.png) | ![About](file:///d:/RAGNOR(gym)/docs/screenshots/about.png) |
 
-| Pricing Tiers | Signup & Dashboard |
+| Pricing Tiers (Authentic) | Signup & Dashboard (Authentic) |
 | :---: | :---: |
-| ![Pricing](file:///d:/RAGNOR(gym)/docs/screenshots/pricing.png) | ![Signup](file:///d:/RAGNOR(gym)/docs/screenshots/signup-dashboard.png) |
+| ![Pricing](file:///d:/RAGNOR(gym)/docs/screenshots/pricing.png) | ![Signup & Dashboard](file:///d:/RAGNOR(gym)/docs/screenshots/dashboard.png) |
 
 ## 🛠️ Tech Stack
 
